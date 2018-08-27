@@ -23,13 +23,15 @@ apps:
     command: desktop-launch $SNAP/usr/bin/windows95
     plugs:
       - alsa
-      - desktop
-      - x11
       - browser-support
-      - pulseaudio
+      - desktop
+      - gsettings
+      - home
       - network
       - network-bind
-      - home
+      - pulseaudio
+      - unity7
+      - x11
 
 parts:
   w95:

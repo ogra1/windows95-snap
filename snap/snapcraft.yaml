@@ -1,0 +1,39 @@
+name: windows95
+version: '1.2.0'
+summary: Windows 95, running in an Electron app.
+description: |
+  Windows 95, running in an Electron app.
+
+  This is the windows95 electron app deb from
+  https://github.com/felixrieseberg/windows95/releases
+  re-packaged as a snap.
+
+grade: stable
+confinement: strict
+
+architectures:
+  - build-on: amd64
+    run-on: amd64
+
+apps:
+  windows95:
+    command: desktop-launch $SNAP/usr/bin/windows95
+    plugs:
+      - desktop
+      - x11
+      - browser-support
+      - pulseaudio
+
+parts:
+  w95:
+    after: [ desktop-gtk3 ]
+    source: https://github.com/felixrieseberg/windows95/releases/download/v1.2.0/windows95-linux_1.2.0_amd64.deb
+    plugin: nil
+    override-build: |
+      cp -av usr $SNAPCRAFT_PART_INSTALL
+    stage-packages:
+      - libasound2
+      - libnspr4
+      - libnss3
+      - libxss1
+      - libxtst6

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=windows95
+Comment=Windows 95, in an app. I'm sorry.
+GenericName=windows95
+Exec=windows95 %U
+Icon=${SNAP}/meta/gui/icon.png
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;
+

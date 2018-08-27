@@ -29,6 +29,7 @@ apps:
       - pulseaudio
       - network
       - network-bind
+      - home
 
 parts:
   w95:

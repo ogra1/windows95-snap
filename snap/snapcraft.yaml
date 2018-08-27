@@ -8,6 +8,9 @@ description: |
   https://github.com/felixrieseberg/windows95/releases
   re-packaged as a snap.
 
+  You can find the source code for the snap at
+  https://github.com/ogra1/windows95-snap
+
 grade: stable
 confinement: strict
 
@@ -23,6 +26,8 @@ apps:
       - x11
       - browser-support
       - pulseaudio
+      - network
+      - network-bind
 
 parts:
   w95:
@@ -30,6 +35,9 @@ parts:
     source: https://github.com/felixrieseberg/windows95/releases/download/v1.2.0/windows95-linux_1.2.0_amd64.deb
     plugin: nil
     override-build: |
+      if [ "$SNAPCRAFT_ARCH_TRIPLET" != "x86_64-linux-gnu" ]; then
+        exit 1
+      fi
       cp -av usr $SNAPCRAFT_PART_INSTALL
     stage-packages:
       - libasound2

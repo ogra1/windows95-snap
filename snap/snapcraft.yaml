@@ -22,6 +22,7 @@ apps:
   windows95:
     command: desktop-launch $SNAP/usr/bin/windows95
     plugs:
+      - alsa
       - desktop
       - x11
       - browser-support
